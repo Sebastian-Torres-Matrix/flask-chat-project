@@ -1,7 +1,5 @@
-# Flask Chat App
-
-This is a chat application written in Flask. 
-Visit the live website: [Flask Chat App](https://flask--chat--project.herokuapp.com/)
+# Flask Chat Project
+Visit the live website: [Flask Chat App](https://chatapp-flask-project.herokuapp.com/)
 
 ## Technologies Used :computer: 
 

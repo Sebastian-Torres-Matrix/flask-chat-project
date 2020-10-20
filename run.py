@@ -1,4 +1,4 @@
-import os 
+import os
 from datetime import datetime
 from flask import Flask, redirect, render_template, request, session, url_for
 
@@ -6,10 +6,12 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET", "randomstring123")
 messages = []
 
+
 def add_message(username, message):
     # Add messages to the messages list
-    now = datetime.now().strftime("%H:%M:%S") #H - Hour, M - Minute, S - Seconds
+    now = datetime.now().strftime("%H:%M:%S")  # H - Hour, M - Minute, S - Seconds
     messages.append({"timestamp": now, "from": username, "message": message})
+
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -22,6 +24,7 @@ def index():
 
     return render_template("index.html")
 
+
 @app.route('/chat/<username>', methods=["GET", "POST"])
 def user(username):
     # Add and display chat messages
@@ -33,5 +36,6 @@ def user(username):
 
     return render_template("chat.html", username=username, chat_messages=messages)
 
-app.run(host=os.getenv('IP', "0.0.0.0"), 
+
+app.run(host=os.getenv('IP', "0.0.0.0"),
     port=int(os.getenv('PORT', "5000")), debug=False)
